@@ -1,0 +1,93 @@
+Train datasets: 304; Val datasets: 181
+Available Samples: 53773; Batch Size: 64
+Available Samples: 1627; Batch Size: 64
+Epoch 1 batch 50: loss=0.645803 grad_norm=19.1620 lr=1.000000e-04 gate_mean=0.4985 gate_entropy=0.6928
+Epoch 1 batch 100: loss=-2.687923 grad_norm=18.7196 lr=1.000000e-04 gate_mean=0.5030 gate_entropy=0.6929
+Epoch 1 batch 150: loss=-5.347621 grad_norm=32.9455 lr=1.000000e-04 gate_mean=0.5012 gate_entropy=0.6929
+Epoch 1 batch 200: loss=-6.308290 grad_norm=93.6021 lr=1.000000e-04 gate_mean=0.5057 gate_entropy=0.6928
+Epoch 1 batch 250: loss=-7.214358 grad_norm=57.3948 lr=1.000000e-04 gate_mean=0.5055 gate_entropy=0.6928
+Epoch 1 batch 300: loss=-8.277050 grad_norm=110.6084 lr=1.000000e-04 gate_mean=0.5068 gate_entropy=0.6926
+Epoch 1 batch 350: loss=-9.561357 grad_norm=149.9026 lr=1.000000e-04 gate_mean=0.5088 gate_entropy=0.6926
+Epoch 1 batch 400: loss=-8.082925 grad_norm=126.8620 lr=1.000000e-04 gate_mean=0.5119 gate_entropy=0.6926
+Epoch 1 batch 450: loss=-7.652777 grad_norm=120.4420 lr=1.000000e-04 gate_mean=0.5107 gate_entropy=0.6926
+Epoch 1 batch 500: loss=-9.533339 grad_norm=306.0294 lr=1.000000e-04 gate_mean=0.5144 gate_entropy=0.6923
+Epoch 1 batch 550: loss=-1.699801 grad_norm=19.1769 lr=1.000000e-04 gate_mean=0.5078 gate_entropy=0.6927
+Epoch 1 batch 600: loss=-5.839224 grad_norm=27.3805 lr=1.000000e-04 gate_mean=0.5100 gate_entropy=0.6926
+Epoch 1 batch 650: loss=-7.657038 grad_norm=88.3667 lr=1.000000e-04 gate_mean=0.5129 gate_entropy=0.6924
+Epoch 1 batch 700: loss=-8.711617 grad_norm=178.1526 lr=1.000000e-04 gate_mean=0.5096 gate_entropy=0.6926
+Epoch 1 batch 750: loss=-5.959606 grad_norm=145.8590 lr=1.000000e-04 gate_mean=0.5094 gate_entropy=0.6926
+Epoch 1 batch 800: loss=-7.823552 grad_norm=385.7352 lr=1.000000e-04 gate_mean=0.5132 gate_entropy=0.6924
+Epoch 1/5 train_loss=-5.957538 val_loss=-7.378529 gate_mean=0.5087 gate_std=0.0046 gate_entropy=0.6926 val_mae_close=0.10716546698889541
+Epoch 2 batch 50: loss=-8.981230 grad_norm=100.0541 lr=1.000000e-04 gate_mean=0.5071 gate_entropy=0.6928
+Epoch 2 batch 100: loss=-11.131734 grad_norm=150.8270 lr=1.000000e-04 gate_mean=0.5098 gate_entropy=0.6927
+Epoch 2 batch 150: loss=-8.697407 grad_norm=100.3740 lr=1.000000e-04 gate_mean=0.5123 gate_entropy=0.6925
+Epoch 2 batch 200: loss=-10.080894 grad_norm=329.0804 lr=1.000000e-04 gate_mean=0.5118 gate_entropy=0.6925
+Epoch 2 batch 250: loss=-9.643832 grad_norm=138.5335 lr=1.000000e-04 gate_mean=0.5139 gate_entropy=0.6924
+Epoch 2 batch 300: loss=-6.477842 grad_norm=276.5841 lr=1.000000e-04 gate_mean=0.5134 gate_entropy=0.6925
+Epoch 2 batch 350: loss=-11.662722 grad_norm=77.5020 lr=1.000000e-04 gate_mean=0.5133 gate_entropy=0.6924
+Epoch 2 batch 400: loss=-7.405713 grad_norm=60.7656 lr=1.000000e-04 gate_mean=0.5154 gate_entropy=0.6923
+Epoch 2 batch 450: loss=-8.176916 grad_norm=77.0990 lr=1.000000e-04 gate_mean=0.5188 gate_entropy=0.6922
+Epoch 2 batch 500: loss=-12.624999 grad_norm=3301.7808 lr=1.000000e-04 gate_mean=0.5191 gate_entropy=0.6919
+Epoch 2 batch 550: loss=2.348562 grad_norm=25.6257 lr=1.000000e-04 gate_mean=0.5065 gate_entropy=0.6927
+Epoch 2 batch 600: loss=-0.154387 grad_norm=23.0857 lr=1.000000e-04 gate_mean=0.5056 gate_entropy=0.6928
+Epoch 2 batch 650: loss=-0.609817 grad_norm=149.3232 lr=1.000000e-04 gate_mean=0.5041 gate_entropy=0.6927
+Epoch 2 batch 700: loss=-4.079566 grad_norm=23.8913 lr=1.000000e-04 gate_mean=0.5039 gate_entropy=0.6928
+Epoch 2 batch 750: loss=-6.136449 grad_norm=50.2148 lr=1.000000e-04 gate_mean=0.5043 gate_entropy=0.6928
+Epoch 2 batch 800: loss=-6.421379 grad_norm=53.7272 lr=1.000000e-04 gate_mean=0.5043 gate_entropy=0.6928
+Epoch 2/5 train_loss=-5.530578 val_loss=-0.627240 gate_mean=0.5104 gate_std=0.0054 gate_entropy=0.6925 val_mae_close=0.15649934519384545
+Epoch 3 batch 50: loss=-6.417731 grad_norm=43.1872 lr=1.000000e-04 gate_mean=0.5060 gate_entropy=0.6927
+Epoch 3 batch 100: loss=-6.854832 grad_norm=130.3303 lr=1.000000e-04 gate_mean=0.5037 gate_entropy=0.6929
+Epoch 3 batch 150: loss=-6.997185 grad_norm=60.7460 lr=1.000000e-04 gate_mean=0.5077 gate_entropy=0.6927
+Epoch 3 batch 200: loss=-8.415582 grad_norm=90.9255 lr=1.000000e-04 gate_mean=0.5023 gate_entropy=0.6929
+Epoch 3 batch 250: loss=0.493799 grad_norm=91.6746 lr=1.000000e-04 gate_mean=0.5040 gate_entropy=0.6927
+Epoch 3 batch 300: loss=-1.669397 grad_norm=52.5926 lr=1.000000e-04 gate_mean=0.5050 gate_entropy=0.6929
+Epoch 3 batch 350: loss=-3.523537 grad_norm=61.8021 lr=1.000000e-04 gate_mean=0.5041 gate_entropy=0.6928
+Epoch 3 batch 400: loss=-6.068254 grad_norm=50.8174 lr=1.000000e-04 gate_mean=0.5035 gate_entropy=0.6928
+Epoch 3 batch 450: loss=-6.720641 grad_norm=57.7924 lr=1.000000e-04 gate_mean=0.5089 gate_entropy=0.6927
+Epoch 3 batch 500: loss=-6.087679 grad_norm=35.3641 lr=1.000000e-04 gate_mean=0.5035 gate_entropy=0.6928
+Epoch 3 batch 550: loss=-6.990089 grad_norm=33.4951 lr=1.000000e-04 gate_mean=0.5090 gate_entropy=0.6927
+Epoch 3 batch 600: loss=-8.115726 grad_norm=41.2394 lr=1.000000e-04 gate_mean=0.5053 gate_entropy=0.6928
+Epoch 3 batch 650: loss=-8.517150 grad_norm=72.6354 lr=1.000000e-04 gate_mean=0.5046 gate_entropy=0.6929
+Epoch 3 batch 700: loss=-7.726838 grad_norm=147.8872 lr=1.000000e-04 gate_mean=0.5084 gate_entropy=0.6927
+Epoch 3 batch 750: loss=-8.957605 grad_norm=42.0552 lr=1.000000e-04 gate_mean=0.5088 gate_entropy=0.6927
+Epoch 3 batch 800: loss=-6.022419 grad_norm=65.8073 lr=1.000000e-04 gate_mean=0.5076 gate_entropy=0.6927
+Epoch 3/5 train_loss=-5.594148 val_loss=-7.116547 gate_mean=0.5057 gate_std=0.0018 gate_entropy=0.6928 val_mae_close=0.2703959261420393
+Epoch 4 batch 50: loss=-9.219117 grad_norm=38.8248 lr=1.000000e-04 gate_mean=0.5087 gate_entropy=0.6928
+Epoch 4 batch 100: loss=-3.327473 grad_norm=251.2706 lr=1.000000e-04 gate_mean=0.5078 gate_entropy=0.6928
+Epoch 4 batch 150: loss=-9.954119 grad_norm=42.2241 lr=1.000000e-04 gate_mean=0.5081 gate_entropy=0.6928
+Epoch 4 batch 200: loss=1.905869 grad_norm=11476.5291 lr=1.000000e-04 gate_mean=0.5063 gate_entropy=0.6929
+Epoch 4 batch 250: loss=-6.887226 grad_norm=73.3248 lr=1.000000e-04 gate_mean=0.5042 gate_entropy=0.6928
+Epoch 4 batch 300: loss=-8.669154 grad_norm=42.7642 lr=1.000000e-04 gate_mean=0.5043 gate_entropy=0.6929
+Epoch 4 batch 350: loss=-8.160171 grad_norm=172.3705 lr=1.000000e-04 gate_mean=0.5078 gate_entropy=0.6929
+Epoch 4 batch 400: loss=4.553493 grad_norm=31.1847 lr=1.000000e-04 gate_mean=0.4950 gate_entropy=0.6928
+Epoch 4 batch 450: loss=2.542022 grad_norm=21.5686 lr=1.000000e-04 gate_mean=0.4922 gate_entropy=0.6927
+Epoch 4 batch 500: loss=0.234164 grad_norm=24.1593 lr=1.000000e-04 gate_mean=0.4956 gate_entropy=0.6929
+Epoch 4 batch 550: loss=-1.728800 grad_norm=24.3331 lr=1.000000e-04 gate_mean=0.4954 gate_entropy=0.6929
+Epoch 4 batch 600: loss=-1.961942 grad_norm=48.1051 lr=1.000000e-04 gate_mean=0.4969 gate_entropy=0.6929
+Epoch 4 batch 650: loss=-2.459491 grad_norm=72.4677 lr=1.000000e-04 gate_mean=0.4915 gate_entropy=0.6928
+Epoch 4 batch 700: loss=-2.119345 grad_norm=50.7727 lr=1.000000e-04 gate_mean=0.4950 gate_entropy=0.6929
+Epoch 4 batch 750: loss=-3.493041 grad_norm=72.8747 lr=1.000000e-04 gate_mean=0.4964 gate_entropy=0.6930
+Epoch 4 batch 800: loss=-3.613619 grad_norm=47.0038 lr=1.000000e-04 gate_mean=0.4940 gate_entropy=0.6928
+Epoch 4/5 train_loss=-0.409734 val_loss=-2.738052 gate_mean=0.5000 gate_std=0.0057 gate_entropy=0.6929 val_mae_close=0.2408718580326275
+Epoch 5 batch 50: loss=-3.799860 grad_norm=61.4815 lr=1.000000e-04 gate_mean=0.4955 gate_entropy=0.6929
+Epoch 5 batch 100: loss=-3.645256 grad_norm=246.3937 lr=1.000000e-04 gate_mean=0.4929 gate_entropy=0.6929
+Epoch 5 batch 150: loss=-5.580506 grad_norm=34.5281 lr=1.000000e-04 gate_mean=0.4964 gate_entropy=0.6930
+Epoch 5 batch 200: loss=-5.998556 grad_norm=57.7172 lr=1.000000e-04 gate_mean=0.4972 gate_entropy=0.6930
+Epoch 5 batch 250: loss=-6.603719 grad_norm=45.7530 lr=1.000000e-04 gate_mean=0.4932 gate_entropy=0.6929
+Epoch 5 batch 300: loss=-5.882442 grad_norm=70.6717 lr=1.000000e-04 gate_mean=0.4945 gate_entropy=0.6929
+Epoch 5 batch 350: loss=-6.041138 grad_norm=69.0065 lr=1.000000e-04 gate_mean=0.4950 gate_entropy=0.6929
+Epoch 5 batch 400: loss=-6.111383 grad_norm=156.8358 lr=1.000000e-04 gate_mean=0.4943 gate_entropy=0.6929
+Epoch 5 batch 450: loss=-5.639304 grad_norm=293.3769 lr=1.000000e-04 gate_mean=0.4926 gate_entropy=0.6929
+Epoch 5 batch 500: loss=-2.326653 grad_norm=589.0673 lr=1.000000e-04 gate_mean=0.4947 gate_entropy=0.6929
+Epoch 5 batch 550: loss=-5.356643 grad_norm=1151.5865 lr=1.000000e-04 gate_mean=0.4936 gate_entropy=0.6929
+Epoch 5 batch 600: loss=-7.272462 grad_norm=134.7689 lr=1.000000e-04 gate_mean=0.4926 gate_entropy=0.6929
+Epoch 5 batch 650: loss=-7.557895 grad_norm=109.2497 lr=1.000000e-04 gate_mean=0.4964 gate_entropy=0.6929
+Epoch 5 batch 700: loss=-7.701718 grad_norm=43.8622 lr=1.000000e-04 gate_mean=0.4932 gate_entropy=0.6929
+Epoch 5 batch 750: loss=-7.131995 grad_norm=439.6357 lr=1.000000e-04 gate_mean=0.4944 gate_entropy=0.6929
+Epoch 5 batch 800: loss=-8.173257 grad_norm=135.8095 lr=1.000000e-04 gate_mean=0.4967 gate_entropy=0.6929
+Epoch 5/5 train_loss=-5.994453 val_loss=-6.134140 gate_mean=0.4943 gate_std=0.0013 gate_entropy=0.6929 val_mae_close=0.18441728515792055
+Available Samples: 1627; Batch Size: 64
+        C_true    C_pred    r_gate
+mean -0.158266 -0.145881  0.498759
+std   1.526081  1.409586  0.000857
+Training complete
