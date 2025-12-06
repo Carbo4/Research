@@ -917,10 +917,9 @@ def main():
     if val_ds:
         val_dl = build_tensor_dataloader(val_ds, batch_size=DataConfig.batch, max_windows=5000)
         df_infer = infer_on_dataloader(model, val_dl, device)
+        
         visualize_inference(df_infer)
         visualize_training_diagnostics(history)
-        
-        # Print diagnostics
         print(df_infer.describe().loc[['mean', 'std']][['C_true', 'C_pred', 'r_gate']])
     
     # Save model
