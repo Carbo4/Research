@@ -7,6 +7,9 @@ compatible with transformer-style models.
 import torch
 import torch.nn as nn
 
+import numpy as np
+
+
 
 class SinusoidalPosEmb(nn.Module):
     """Sinusoidal positional embeddings (vectorized).
@@ -32,7 +35,7 @@ class SinusoidalPosEmb(nn.Module):
         """
         pe = torch.zeros(seq_len, self.dim, device=device)
         position    = torch.arange(0, seq_len, dtype=torch.float32, device=device).unsqueeze(1)
-        div_term    = torch.exp(torch.arange(0, self.dim, 2, dtype=torch.float32, device=device) * (-torch.log(10000.0) / self.dim))
+        div_term    = torch.exp(torch.arange(0, self.dim, 2, dtype=torch.float32, device=device) * (-np.log(10000.0) / self.dim))
         pe[:, 0::2] = torch.sin(position * div_term)
         pe[:, 1::2] = torch.cos(position * div_term)
         return pe

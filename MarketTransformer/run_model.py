@@ -58,7 +58,7 @@ Typical entry point
 - The module is executable as a script; calling the file directly runs:
 """
 
-from Components import MarketTransformer
+from Components.MarketTransformer import MarketTransformer
 from Components.utils import build_train_val_datasets, build_tensor_dataloader, infer_on_dataloader
 from Components.visuals import visualize_inference, visualize_training_diagnostics
 from Components.trainer import train_model
@@ -68,6 +68,7 @@ from pandas import DataFrame
 
 import torch
 import os
+
 
 
 class DataConfig:
@@ -100,7 +101,7 @@ def main(path = None):
     if len(train_ds) == 0 : return print("No training datasets found; exiting")
     
     if not path: 
-        model, history = train_model(train_ds, val_ds, seq_len=DataConfig.window, epochs=5, batch_size=DataConfig.batch)
+        model, history = train_model(train_ds, val_ds, seq_len=DataConfig.window, epochs=15, batch_size=DataConfig.batch)
         torch.save(model, "./MarketTransformer/MarketTransformer.pth")
         print("Training complete")
     
@@ -123,4 +124,5 @@ def main(path = None):
     
 
 
-if __name__ == "__main__" : main(path="./MarketTransformer/MarketTransformer.pth")
+# if __name__ == "__main__" : main(path="./MarketTransformer/MarketTransformer.pth")
+if __name__ == "__main__" : main()

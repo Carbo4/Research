@@ -11,6 +11,7 @@ from typing import Dict, Optional, Tuple
 import torch.nn as nn
 import torch
 
+import numpy as np
 
 class RouterMLP(nn.Module):
     """Small MLP mapping [G_v, G_oc] -> r in [0,1].
@@ -34,7 +35,7 @@ class RouterMLP(nn.Module):
         nn.init.normal_(self.fc2.weight, mean=0.0, std=init_w_std)
         # convert init_r in (0,1) to logit for bias; guard numerical extremes
         r_clamped = min(max(init_r, 1e-6), 1.0 - 1e-6)
-        bias_val = torch.log(r_clamped / (1.0 - r_clamped))
+        bias_val = np.log(r_clamped / (1.0 - r_clamped))
         with torch.no_grad():
             self.fc2.bias.fill_(bias_val)
 

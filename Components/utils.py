@@ -8,6 +8,7 @@ import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
+import numpy as np
 
 
 """Utility helpers: normalization, dataloader builders, and inference helpers.
@@ -54,7 +55,7 @@ def compute_gabor_metric(signal: torch.Tensor, fs: float = 1.0) -> float:
     if signal.size == 0:
         return 0.0
 
-    x: torch.Tensor = torch.from_numpy(signal.astype(torch.float32))
+    x: torch.Tensor = signal.to(torch.float32)
 
     fft_x: torch.Tensor = torch.fft.fft(x)
     power: torch.Tensor = (fft_x.real ** 2 + fft_x.imag ** 2)
@@ -74,7 +75,7 @@ def compute_gabor_metric(signal: torch.Tensor, fs: float = 1.0) -> float:
     var_t: float = float((power_norm * (times - t_mean) ** 2).sum().item())
     var_f: float = float((power_norm * (freqs - f_mean) ** 2).sum().item())
 
-    metric: float = float(torch.sqrt(max(var_t, 0.0) * max(var_f, 0.0)))
+    metric: float = float(np.sqrt(max(var_t, 0.0) * max(var_f, 0.0)))
     return metric
 
 
@@ -134,8 +135,13 @@ def build_train_val_datasets(paths: List[str], window_size: int = 128, target_si
             df_train_norm, mean_vals, std_vals = _normalize_df(df_train, numeric_cols)
             ds_train = OHLCVWindowDataset(df_train_norm, window_size=window_size, target_size=target_size, stride=stride)
             # compute gabor on normalized train df
-            vol_arr = df_train_norm["volume"].to_numpy(dtype=float)
-            oc_arr = torch.ravel(torch.column_stack([df_train_norm["open"].to_numpy(dtype=float), df_train_norm["close"].to_numpy(dtype=float)]))
+            vol_arr = torch.tensor(df_train_norm["volume"].values, dtype=torch.float32)
+            
+            oc_arr = torch.ravel(torch.tensor(np.column_stack([
+                df_train_norm["open"].values, 
+                df_train_norm["close"].values
+            ]), dtype=torch.float32))
+            
             ds_train.gabor_volume = compute_gabor_metric(vol_arr, fs=fs)
             ds_train.gabor_oc = compute_gabor_metric(oc_arr, fs=fs)
             train_datasets.append(ds_train)
@@ -148,8 +154,13 @@ def build_train_val_datasets(paths: List[str], window_size: int = 128, target_si
                 df_val_norm, _, _ = _normalize_df(df_val, numeric_cols)
 
             ds_val = OHLCVWindowDataset(df_val_norm, window_size=window_size, target_size=target_size, stride=stride)
-            vol_arr = df_val_norm["volume"].to_numpy(dtype=float)
-            oc_arr = torch.ravel(torch.column_stack([df_val_norm["open"].to_numpy(dtype=float), df_val_norm["close"].to_numpy(dtype=float)]))
+            vol_arr = torch.tensor(df_val_norm["volume"].values, dtype=torch.float32)
+            
+            oc_arr = torch.ravel(torch.tensor(np.column_stack([
+                df_val_norm["open"].values, 
+                df_val_norm["close"].values
+            ]), dtype=torch.float32))
+            
             ds_val.gabor_volume = compute_gabor_metric(vol_arr, fs=fs)
             ds_val.gabor_oc = compute_gabor_metric(oc_arr, fs=fs)
             val_datasets.append(ds_val)
@@ -187,8 +198,8 @@ def infer_on_dataloader(model: MarketTransformer, dl: DataLoader, device: torch.
             feat_log_scales = preds['feat_log_scales']
             sigma_h = _softplus_pos(feat_log_scales[:, 2])
             sigma_l = _softplus_pos(feat_log_scales[:, 3])
-            mean_rh = sigma_h * torch.sqrt(2.0 / torch.pi)
-            mean_rl = sigma_l * torch.sqrt(2.0 / torch.pi)
+            mean_rh = sigma_h * np.sqrt(2.0 / torch.pi)
+            mean_rl = sigma_l * np.sqrt(2.0 / torch.pi)
 
             h_pred = torch.max(o_pred, c_pred) + mean_rh
             l_pred = torch.min(o_pred, c_pred) - mean_rl

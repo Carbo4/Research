@@ -8,11 +8,11 @@ from typing import List, Optional
 from .dataset import OHLCVWindowDataset
 from .MarketTransformer import MarketTransformer
 from .utils import build_tensor_dataloader
-from loss import total_loss
+from .loss import total_loss
 from torch.utils.data import DataLoader
 
 import torch
-
+import numpy as np
 
 def train_model(datasets_train: List[OHLCVWindowDataset], datasets_val: List[OHLCVWindowDataset], seq_len: int, epochs: int = 5, batch_size: int = 64, device: Optional[torch.device] = None):
     """Train a MarketTransformer on provided windowed datasets.
@@ -83,7 +83,7 @@ def train_model(datasets_train: List[OHLCVWindowDataset], datasets_val: List[OHL
             for p in model.parameters():
                 if p.grad is not None:
                     grad_norm += float(p.grad.data.norm(2).cpu().item() ** 2)
-            grad_norm = torch.sqrt(grad_norm)
+            grad_norm = np.sqrt(grad_norm)
 
             optim.step()
 
@@ -104,9 +104,9 @@ def train_model(datasets_train: List[OHLCVWindowDataset], datasets_val: List[OHL
 
         train_avg = total_loss_val / max(1, total_batches)
         history['train_loss'].append(train_avg)
-        history['gate_mean'].append(torch.mean(gate_vals) if gate_vals else 0.0)
-        history['gate_std'].append(torch.std(gate_vals) if gate_vals else 0.0)
-        history['gate_entropy'].append(torch.mean(gate_entropies) if gate_entropies else 0.0)
+        history['gate_mean'].append(np.mean(gate_vals) if gate_vals else 0.0)
+        history['gate_std'].append(np.std(gate_vals) if gate_vals else 0.0)
+        history['gate_entropy'].append(np.mean(gate_entropies) if gate_entropies else 0.0)
 
         # decay router noise to let gating sharpen later in training
         if hasattr(model, 'router_mlp') and getattr(model.router_mlp, 'noise_std', 0.0) > 0.0:
@@ -136,7 +136,7 @@ def train_model(datasets_train: List[OHLCVWindowDataset], datasets_val: List[OHL
                     clos_resid.extend((c_pred - C).detach().cpu().numpy().tolist())
 
             val_loss = val_total / max(1, val_batches)
-            val_mae_close = float(torch.mean(torch.abs(torch.array(clos_resid)))) if len(clos_resid) else None
+            val_mae_close = float(torch.mean(torch.abs(torch.tensor(clos_resid)))) if len(clos_resid) else None
             history['val_loss'].append(val_loss); history['val_mae_close'].append(val_mae_close)
 
         print(f"Epoch {ep}/{epochs} train_loss={train_avg:.6f} val_loss={float(val_loss):.6f} gate_mean={history['gate_mean'][-1]:.4f} gate_std={history['gate_std'][-1]:.4f} gate_entropy={history['gate_entropy'][-1]:.4f} val_mae_close={val_mae_close}")
